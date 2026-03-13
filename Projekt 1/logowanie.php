@@ -8,6 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="logowanie_styl.css">
 </head>
 <body>
     <nav>
@@ -17,7 +18,7 @@ session_start();
     <form method="POST">
         <label for="email">Email:</label>
         <input type="email" name="email" require><br>
-        <label for="password">Hasło:</label>
+        <label for="password" id="password_label">Hasło:</label>
         <input type="password" name="password" require><br><br>
         <input type="submit" value="Zaloguj">
     </form>

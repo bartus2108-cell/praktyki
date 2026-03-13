@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2026 at 12:25 PM
+-- Generation Time: Mar 13, 2026 at 08:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,6 +41,19 @@ CREATE TABLE `klienci` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `koszyk`
+--
+
+CREATE TABLE `koszyk` (
+  `id` int(11) NOT NULL,
+  `produkt_id` int(11) NOT NULL,
+  `produkt_nazwa` varchar(255) NOT NULL,
+  `ilosc` int(11) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `produkty`
 --
 
@@ -69,6 +82,13 @@ CREATE TABLE `zamowienia` (
 --
 
 --
+-- Indexes for table `koszyk`
+--
+ALTER TABLE `koszyk`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produkt_id` (`produkt_id`);
+
+--
 -- Indexes for table `produkty`
 --
 ALTER TABLE `produkty`
@@ -79,10 +99,26 @@ ALTER TABLE `produkty`
 --
 
 --
+-- AUTO_INCREMENT for table `koszyk`
+--
+ALTER TABLE `koszyk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `produkty`
 --
 ALTER TABLE `produkty`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `koszyk`
+--
+ALTER TABLE `koszyk`
+  ADD CONSTRAINT `koszyk_ibfk_1` FOREIGN KEY (`produkt_id`) REFERENCES `produkty` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

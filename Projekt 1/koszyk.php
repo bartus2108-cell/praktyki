@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Koszyk</title>
 </head>
 <body>
     <nav>
@@ -17,16 +17,23 @@ session_start();
     </nav>
     <h1>Koszyk:</h1>
     <?php
-    $select = "SELECT produkt_nazwa, ilosc FROM koszyk";
+    $select = "SELECT produkt_id, produkt_nazwa, ilosc FROM koszyk";
     $executeS = mysqli_query($db, $select);
 
     if(mysqli_num_rows($executeS) == 0){
         echo "Nie masz aktualnie nic w koszyku!";
-    }else{
+    } else {
         while($product = mysqli_fetch_assoc($executeS)){
             echo "<div style='border: 1px solid #ccc; padding: 10px; margin: 10px;'>";
             echo "<h3>Produkt: {$product['produkt_nazwa']}</h3>";
             echo "<p>Ilość: {$product['ilosc']}</p>";
+
+            echo "<form method='POST' action='dodaj_do_zamowien.php'>";
+            echo "<input type='hidden' name='produkt_id' value='{$product['produkt_id']}'>";
+            echo "<input type='hidden' name='ilosc' value='{$product['ilosc']}'>";
+            echo "<input type='hidden' name='produkt_nazwa' value='{$product['produkt_nazwa']}'>";
+            echo "<button type='submit'>Zamów</button>";
+            echo "</form>";
             echo "</div>";
         }
     }

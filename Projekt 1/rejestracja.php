@@ -8,6 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="rejestracja_styl.css">
 </head>
 <body>
     <nav>
@@ -15,16 +16,16 @@ session_start();
     </nav>
     <h1>Strona Rejestracji</h1>
     <form method="POST">
-        <label for="name">Imię:</label>
+        <label for="name" id="imie_label">Imię:</label>
         <input type="text" name="name" require><br>
         <label for="surname">Nazwisko:</label>
         <input type="text" name="surname" require><br>
-        <label for="email">Email:</label>
+        <label for="email" id="email_label">Email:</label>
         <input type="email" name="email" require><br>
-        <label for="password">Hasło:</label>
+        <label for="password" id="password_label">Hasło:</label>
         <input type="password" name="password" require><br>
         <label for="c_password">Potwierdź Hasło:</label>
-        <input type="password" name="c_password" require><br><br>
+        <input type="password" name="c_password" id="c_password" require><br><br>
         <input type="submit" value="Zarejestruj">
     </form>
     <?php
