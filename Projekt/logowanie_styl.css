@@ -1,0 +1,9 @@
+form{
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 1px;
+    width: 13%;
+}
+#password_label{
+    margin-right: 0.5%;
+}

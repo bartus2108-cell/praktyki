@@ -1,0 +1,12 @@
+klienci:
+ALTER TABLE klienci ADD miasto VARCHAR(100);
+ALTER TABLE klienci ADD ulica VARCHAR(100);
+ALTER TABLE klienci ADD numer_mieszkania INT(100);
+ALTER TABLE klienci ADD imie VARCHAR(100);
+ALTER TABLE klienci ADD nazwisko VARCHAR(100);
+ALTER TABLE klienci MODIFY id INT AUTO_INCREMENT;
+zamowienia:
+ALTER TABLE zamowienia ADD ilosc INT;
+ALTER TABLE zamowienia ADD nazwa_produkru VARCHAR(100);
+produkty:
+ALTER TABLE produkty MODIFY id INT AUTO_INCREMENT;
